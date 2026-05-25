@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Yatra+One&family=Shrikhand&family=Waiting+for+the+Sunrise&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050505;
+  color: #E5E7EB;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Outfit", ui-serif, Georgia, serif;
+  --font-display: "Outfit", ui-serif, Georgia, serif;
+  --font-typewriter: "Waiting for the Sunrise", cursive;
+  --font-cursive: "Great Vibes", cursive;
+  --font-regional: "Yatra One", serif;
+  --font-gujarati: "Shrikhand", cursive;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-hairline: var(--hairline);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #050505;
+  --surface: #0F0A1F;
+  --foreground: #F3F4F6;
+  --ink: #FFFFFF;
+  --card: #09090b;
+  --card-foreground: #E5E7EB;
+  --popover: #09090b;
+  --popover-foreground: #E5E7EB;
+  --primary: #06B6D4;
+  --primary-foreground: #050505;
+  --secondary: #4C1D95;
+  --secondary-foreground: #F3F4F6;
+  --muted: #1F2937;
+  --muted-foreground: #9CA3AF;
+  --accent: #06B6D4;
+  --accent-foreground: #050505;
+  --border: #1F2937;
+  --hairline: #1F2937;
+  --input: #1F2937;
+  --ring: #06B6D4;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--color-accent); color: var(--color-accent-foreground); }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.02em; }
+  .font-typewriter { font-family: var(--font-typewriter); }
+  .text-balance { text-wrap: balance; }
+  .grain {
+    background-image: radial-gradient(rgba(6, 182, 212, 0.08) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+  .hairline { border-color: var(--color-hairline); }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
